@@ -19,7 +19,6 @@ form.addEventListener("submit", addItem);
 
 // ****** FUNCTIONS **********
 
-// ****** LOCAL STORAGE **********
 function addItem(e) {
   e.preventDefault();
   // access the value of the input
@@ -55,6 +54,10 @@ function addItem(e) {
     displayAlert("Item added to the list", "success");
     // show container
     container.classList.add("show-container");
+    // add/save item to local storage
+    addToLocalStorage(id, value);
+    // set back/list to default
+    setBackToDefault();
     // (value && editFlag)
   } else if (value !== "" && editFlag === true) {
     console.log("Edit values");
@@ -73,6 +76,16 @@ function displayAlert(text, action) {
     alert.textContent = "";
     alert.classList.remove(`alert-${action}`);
   }, 1000);
+}
+
+// set back to default
+function setBackToDefault() {
+  console.log("set back to default");
+}
+
+// ****** LOCAL STORAGE **********
+function addToLocalStorage(id, value) {
+  console.log("added to local storage");
 }
 
 // ****** SETUP ITEMS **********
