@@ -7,7 +7,10 @@ const container = document.querySelector(".grocery-container");
 const list = document.querySelector(".grocery-list");
 const clearBtn = document.querySelector(".clear-btn");
 
-// edit option
+// edit option, variables
+let editElement;
+let editFlag = false;
+let editID = "";
 
 // ****** EVENT LISTENERS **********
 
