@@ -30,7 +30,31 @@ function addItem(e) {
 
   // (value && !editFlag)
   if (value !== "" && editFlag === false) {
-    console.log("Adding values");
+    const element = document.createElement("article");
+    // add class to the newly created article element
+    element.classList.add("grocery-item");
+    // add id
+    const attr = document.createAttribute("data-id");
+    attr.value = id;
+    // add the id to the element
+    element.setAttributeNode(attr);
+    // add it to the HTML element
+    element.innerHTML = `<p class="title">${value}</p>
+    <div class="btn-container">
+      <button type="button" class="edit-btn">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button type="button" class="delete-btn">
+        <i class="fas fa-trash"></i>
+      </button>
+      <button></button>
+    </div>`;
+    // append child....add it to the list
+    list.appendChild(element);
+    // display alert
+    displayAlert("Item added to the list", "success");
+    // show container
+    container.classList.add("show-container");
     // (value && editFlag)
   } else if (value !== "" && editFlag === true) {
     console.log("Edit values");
