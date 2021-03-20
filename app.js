@@ -69,7 +69,9 @@ function addItem(e) {
     setBackToDefault();
     // (value && editFlag)
   } else if (value !== "" && editFlag === true) {
-    console.log("Edit values");
+    editElement.innerHTML = value;
+    displayAlert("value changed", "success");
+    setBackToDefault();
   } else {
     displayAlert("please enter value", "danger");
   }
