@@ -51,6 +51,12 @@ function addItem(e) {
       </button>
       <button></button>
     </div>`;
+    const deleteBtn = element.querySelector(".delete-btn");
+    const editBtn = element.querySelector(".edit-btn");
+
+    deleteBtn.addEventListener("click", deleteItem);
+    editBtn.addEventListener("click", editItem);
+
     // append child....add it to the list
     list.appendChild(element);
     // display alert
@@ -93,6 +99,18 @@ function clearItems() {
   // remove the clearItem container when items are clear
   container.classList.remove("show-container");
   displayAlert("empty list", "danger");
+  setBackToDefault();
+  localStorage.removeItem("list");
+}
+
+// delete funciton
+function deleteItem() {
+  console.log("item deleted");
+}
+
+// edit funciton
+function editItem() {
+  console.log("edit item");
 }
 
 // set back to default
