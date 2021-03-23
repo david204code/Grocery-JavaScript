@@ -71,6 +71,9 @@ function addItem(e) {
   } else if (value !== "" && editFlag === true) {
     editElement.innerHTML = value;
     displayAlert("value changed", "success");
+
+    // edit local storage
+    editLocalStorage(editID, value);
     setBackToDefault();
   } else {
     displayAlert("please enter value", "danger");
@@ -151,4 +154,16 @@ function addToLocalStorage(id, value) {
 }
 
 function removeFromLocalStorage(id) {}
+function editLocalStorage(id, value) {}
 // ****** SETUP ITEMS **********
+
+// localStorage API
+// setItem
+// getItem
+// removeItem
+// save as strings
+
+localStorage.setItem("orange", JSON.stringify(["item", "item2"]));
+const oranges = JSON.parse(localStorage.getItem("apple"));
+console.log(oranges);
+localStorage.removeItem("orange");
