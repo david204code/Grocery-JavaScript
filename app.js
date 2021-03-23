@@ -155,9 +155,7 @@ function addToLocalStorage(id, value) {
   // console.log(grocery);
 
   // ternary operator
-  let items = localStorage.getItem("list")
-    ? JSON.parse(localStorage.getItem("list"))
-    : [];
+  let items = getLocalStorage();
   console.log(items);
   items.push(grocery);
   localStorage.setItem("list", JSON.stringify(items));
@@ -165,6 +163,12 @@ function addToLocalStorage(id, value) {
 
 function removeFromLocalStorage(id) {}
 function editLocalStorage(id, value) {}
+
+function getLocalStorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+}
 // ****** SETUP ITEMS **********
 
 // localStorage API
