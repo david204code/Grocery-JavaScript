@@ -123,7 +123,7 @@ function deleteItem(e) {
   setBackToDefault();
 
   // use ids to remove from local storage
-  // removeFromLocalStorage(id);
+  removeFromLocalStorage(id);
 }
 
 // edit funciton
@@ -156,12 +156,26 @@ function addToLocalStorage(id, value) {
 
   // ternary operator
   let items = getLocalStorage();
-  console.log(items);
+  // console.log(items);
   items.push(grocery);
   localStorage.setItem("list", JSON.stringify(items));
 }
 
-function removeFromLocalStorage(id) {}
+function removeFromLocalStorage(id) {
+  let items = getLocalStorage();
+
+  items = items.filter(function (item) {
+    // console.log(item);
+    if (item.id !== id) {
+      // console.log(item);
+      return item;
+    }
+  });
+
+  // set it to localstorage after the item is removed
+  localStorage.setItem("list", JSON.stringify(items));
+}
+
 function editLocalStorage(id, value) {}
 
 function getLocalStorage() {
